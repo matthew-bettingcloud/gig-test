@@ -1,0 +1,23 @@
+.categories-list {
+    color: #bdbdbd;
+
+    h2 {
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    ul {
+        padding: 0;
+
+        li {
+            list-style: none;
+            margin: 15px 0;
+            font-weight: bold;
+
+            &:hover {
+                color: #ff8a65;
+            }
+        }
+    }
+}

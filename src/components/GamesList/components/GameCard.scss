@@ -1,0 +1,15 @@
+.game-card {
+    width: 100%;
+    background: #ffffff;
+    color: #bdbdbd;
+
+    .game-image {
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .game-info {
+        padding: 10px;
+    }
+}
