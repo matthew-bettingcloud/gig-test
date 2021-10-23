@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-import Category from '../models/Category';
-
-export default function getCategories(): Promise<Category[]> {
+export default function getCategories() {
     return axios.get('/api/categories-list.json');
 } 

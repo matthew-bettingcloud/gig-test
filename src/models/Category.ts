@@ -1,4 +1,4 @@
-export default interface ICategory {
+export interface ICategory {
     id: number,
     displayName: string,
     languageCode: string,
@@ -7,9 +7,19 @@ export default interface ICategory {
     visible: boolean
 }
 
-export default class Category implements ICategory {
+export enum CategoryActionEnum {
+    SET_STATE = 'SET_STATE',
+    SET_STATE_ASYNC = 'SET_STATE_ASYNC' 
+}
+
+export interface ICategoryStateAction {
+    type: string,
+    payload: Category[]
+}
+
+export class Category implements ICategory {
     id: number;
-    name: string;
+    displayName: string;
     languageCode: string;
     languageID: number;
     tag: string;
@@ -17,7 +27,7 @@ export default class Category implements ICategory {
 
     constructor(category: ICategory) {
         this.id = category.id;
-        this.name = category.displayName;
+        this.displayName = category.displayName;
         this.languageCode = category.languageCode;
         this.languageID = category.languageID;
         this.tag = category.tag;
