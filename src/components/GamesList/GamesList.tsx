@@ -37,6 +37,16 @@ function GamesListItems() {
         });
     }
 
+    if (filter.alphabetically) {
+        filteredGames = filteredGames.sort((gameA, gameB) => {
+            if(gameA.name < gameB.name) { 
+                return -1 
+            } else {
+                return 1;
+            }
+        });
+    }
+
     const listItems = [];
     
     for (const item of filteredGames) {

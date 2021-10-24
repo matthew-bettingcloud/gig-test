@@ -3,7 +3,8 @@ import { Filter, FilterActionEnum, IFilterStateAction } from '../../models/Filte
 const intialState: Filter = {
     searchText: '',
     searching: false,
-    category: null
+    category: null,
+    alphabetically: false
 }
 
 const filterReducer = (state: Filter = intialState, action: IFilterStateAction) => {
@@ -18,7 +19,9 @@ const filterReducer = (state: Filter = intialState, action: IFilterStateAction) 
             return state;
         case FilterActionEnum.CATEGORY: 
             state = { ...state, category: action.payload.category };
-            console.log(state)
+            return state;
+        case FilterActionEnum.ALPHABETICALLY:
+            state = { ...state, alphabetically: true };
             return state;
         default:
             return state;
