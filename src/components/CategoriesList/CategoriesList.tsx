@@ -1,27 +1,30 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IAppState } from '../../models/AppState';
-import { CategoryActionEnum } from '../../models/Category';
+import { Category, CategoryActionEnum } from '../../models/Category';
 import './CategoriesList.scss';
 
 
 export const CategoriesList = () => {
     const dispatch = useDispatch();
+    dispatch({ type: CategoryActionEnum.SET_STATE });
 
-    useEffect(() => {
-        dispatch({ type: CategoryActionEnum.SET_STATE });
-    })
-
-    const categories = useStore().getState().categories
     return (
         <div className="categories-list">
             <h2>Categories</h2>
 
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
+            <CategoriesListItems />
         </div>
     )
+}
+
+function CategoriesListItems() {
+    const categories: Category[] = useSelector<IAppState, Category[]>(state => state.categories);
+
+    const listItems = [];
+    
+    for (const item of categories) {
+        listItems.push(<li key={item.id}>{item.displayName}</li>)
+    }
+
+    return (<ul>{ listItems }</ul>);
 }

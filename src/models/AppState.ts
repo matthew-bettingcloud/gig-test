@@ -1,3 +1,5 @@
+import { Category } from "./Category";
+
 export interface IAppState {
-    categories: any
+    categories: Category[]
 } 
