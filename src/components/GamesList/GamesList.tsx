@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { IAppState } from '../../models/AppState';
+import { Filter } from '../../models/Filter';
 import { Game, GameActionEnum } from '../../models/Game';
 
 import GameCard from './components/GameCard';
@@ -21,10 +22,18 @@ export const GamesList = () =>  {
 
 function GamesListItems() {
     const games: Game[] = useSelector<IAppState, Game[]>(state => state.games);
+    const filter: Filter = useSelector<IAppState, Filter>(state => state.filter);
+    let filteredGames: Game[] = games;
+
+    if (filter.searching) {
+        filteredGames = filteredGames.filter(game => {
+            return game.name.toLowerCase().includes(filter.searchText.toLocaleLowerCase());
+        })
+    }
 
     const listItems = [];
     
-    for (const item of games) {
+    for (const item of filteredGames) {
         listItems.push(<GameCard key={item.gameId} game={item} />)
     }
 

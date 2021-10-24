@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputSearch from './components/InputSearch/InputSearch';
+import { InputSearch } from './components/InputSearch/InputSearch';
 import Filter from './components/Filter/Filter';
 import ViewMode from './components/ViewMode/ViewMode';
 
