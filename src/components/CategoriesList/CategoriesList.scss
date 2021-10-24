@@ -14,8 +14,9 @@
             list-style: none;
             margin: 15px 0;
             font-weight: bold;
+            cursor: pointer;
 
-            &:hover {
+            &:hover, &.active {
                 color: #ff8a65;
             }
         }

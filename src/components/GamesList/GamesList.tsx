@@ -31,11 +31,17 @@ function GamesListItems() {
         })
     }
 
+    if (filter.category !== null) {
+        filteredGames = filteredGames.filter(game => {
+            return game.categories.some(item => item.categoryId === filter.category)
+        });
+    }
+
     const listItems = [];
     
     for (const item of filteredGames) {
         listItems.push(<GameCard key={item.gameId} game={item} />)
     }
 
-    return (<>{listItems}</>);
+    return listItems.length ? (<>{listItems}</>) : (<span>No results found</span>);
 }

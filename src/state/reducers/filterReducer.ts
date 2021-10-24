@@ -2,7 +2,8 @@ import { Filter, FilterActionEnum, IFilterStateAction } from '../../models/Filte
 
 const intialState: Filter = {
     searchText: '',
-    searching: false
+    searching: false,
+    category: null
 }
 
 const filterReducer = (state: Filter = intialState, action: IFilterStateAction) => {
@@ -13,7 +14,11 @@ const filterReducer = (state: Filter = intialState, action: IFilterStateAction) 
                 searchText: action.payload.searchText,
                 searching: action.payload.searchText.length ? true : false
             }
-            
+
+            return state;
+        case FilterActionEnum.CATEGORY: 
+            state = { ...state, category: action.payload.category };
+            console.log(state)
             return state;
         default:
             return state;

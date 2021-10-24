@@ -1,6 +1,7 @@
 export interface IFilter {
     searchText: string,
-    searching: boolean
+    searching: boolean,
+    category: number | null,
 }
 
 export interface IFilterStateAction {
@@ -9,15 +10,18 @@ export interface IFilterStateAction {
 }
 
 export enum FilterActionEnum {
-    SEARCH = 'SEARCH'
+    SEARCH = 'SEARCH',
+    CATEGORY = 'CATEGORY'
 }
 
 export class Filter implements IFilter {
     public searchText: string;
     public searching: boolean;
+    public category: number | null;
 
     constructor (filter: IFilter) {
         this.searchText = filter.searchText;
         this.searching = filter.searching;
+        this.category = filter.category;
     }
 }
