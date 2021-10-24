@@ -1,5 +1,3 @@
-
-
 import { Category, CategoryActionEnum, ICategoryStateAction } from '../../models/Category'
 
 const categoriesReducer = (state: Category[] = [], action: ICategoryStateAction) => {

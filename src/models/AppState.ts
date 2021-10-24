@@ -1,5 +1,7 @@
 import { Category } from "./Category";
+import { Game } from "./Game";
 
 export interface IAppState {
-    categories: Category[]
+    categories: Category[],
+    games: Game[]
 } 
