@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IAppState } from '../../models/AppState';
 import { Filter } from '../../models/Filter';
 import { Game, GameActionEnum } from '../../models/Game';
+import { ViewMode, ViewModeEnum } from '../../models/ViewMode';
 
-import GameCard from './components/GameCard';
+import GameCard from './components/GameCard/GameCard';
+import GameLine from './components/GameLine/GameLine';
 
 import './GamesList.scss';
 
@@ -23,6 +25,7 @@ export const GamesList = () =>  {
 function GamesListItems() {
     const games: Game[] = useSelector<IAppState, Game[]>(state => state.games);
     const filter: Filter = useSelector<IAppState, Filter>(state => state.filter);
+    const viewMode: ViewMode = useSelector<IAppState, ViewMode>(state => state.viewMode);
     let filteredGames: Game[] = games;
 
     if (filter.searching) {
@@ -88,7 +91,11 @@ function GamesListItems() {
     const listItems = [];
     
     for (const item of filteredGames) {
-        listItems.push(<GameCard key={item.gameId} game={item} />)
+        if(viewMode.type === ViewModeEnum.GRID) {
+            listItems.push(<GameCard key={item.gameId} game={item} />)
+        } else {
+            listItems.push(<GameLine key={item.gameId} game={item} />)
+        }
     }
 
     return listItems.length ? (<>{listItems}</>) : (<span>No results found</span>);

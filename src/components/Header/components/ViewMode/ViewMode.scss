@@ -5,13 +5,10 @@
     span {
         margin-left: 15px;
         cursor: pointer;
+        color: #bdbdbd;
         
-        i {
-            color: #bdbdbd;
-
-            &:hover {
-                color: #ff8a65;
-            }
+        &:hover, &.active {
+            color: #ff8a65;
         }
     }
 }
