@@ -1,5 +1,6 @@
 import React from 'react';
 import { Game } from '../../../../models/Game';
+import GameTag from '../GameTag/GameTag';
 
 import './GameLine.scss';
 
@@ -13,6 +14,7 @@ export default class GameLine extends React.Component<GameLineProps> {
                 <section className="game-info">
                     {this.props.game.name}
                 </section>
+                <GameTag game={this.props.game}/>
             </div>
         )
     }

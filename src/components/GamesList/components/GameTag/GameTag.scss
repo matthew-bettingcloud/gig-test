@@ -1,0 +1,21 @@
+.game-tag {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 5px;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: bold;
+
+    &.new {
+        background-color: #fdd835;
+    }
+
+    &.hot {
+        background-color: #e53935;
+    }
+
+    &.live {
+        background-color: #1565c0;
+    }
+}

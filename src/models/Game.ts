@@ -8,7 +8,10 @@ export interface IGame {
     vendorId: number,
     name: string,
     slug: string,
-    categories: IGameCategory[]
+    categories: IGameCategory[],
+    isNew?: boolean,
+    isHot?: boolean,
+    isLive?: boolean 
 }
 
 export interface IGameStateAction {
@@ -27,6 +30,9 @@ export class Game implements IGame {
     name: string;
     slug: string;
     categories: IGameCategory[];
+    isNew: boolean;
+    isHot: boolean;
+    isLive: boolean;
 
     constructor(game: IGame) {
         this.gameId = game.gameId;
@@ -34,5 +40,8 @@ export class Game implements IGame {
         this.name = game.name;
         this.slug = game.slug;
         this.categories = game.categories;
+        this.isNew = game.isNew!;
+        this.isHot = game.isHot!;
+        this.isLive = game.isLive!;
     }
 }
