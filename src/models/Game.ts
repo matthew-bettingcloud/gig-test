@@ -3,6 +3,12 @@ interface IGameCategory {
     orderNumber?: number
 }
 
+interface IGameJackpot {
+    gameId: number;
+    currencyFormat: string;
+
+}
+
 export interface IGame {
     gameId: number,
     vendorId: number,
@@ -11,7 +17,8 @@ export interface IGame {
     categories: IGameCategory[],
     isNew?: boolean,
     isHot?: boolean,
-    isLive?: boolean 
+    isLive?: boolean,
+    jackpot?: IGameJackpot
 }
 
 export interface IGameStateAction {
@@ -33,6 +40,7 @@ export class Game implements IGame {
     isNew: boolean;
     isHot: boolean;
     isLive: boolean;
+    jackpot: IGameJackpot;
 
     constructor(game: IGame) {
         this.gameId = game.gameId;
@@ -43,5 +51,6 @@ export class Game implements IGame {
         this.isNew = game.isNew!;
         this.isHot = game.isHot!;
         this.isLive = game.isLive!;
+        this.jackpot = game.jackpot!;
     }
 }
