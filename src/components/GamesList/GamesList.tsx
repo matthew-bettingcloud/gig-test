@@ -47,6 +47,44 @@ function GamesListItems() {
         });
     }
 
+    if (filter.popularity) {
+        // Sort the categories first
+        for(let i = 0; i <= filteredGames.length -1 ; i++) {
+            filteredGames[i].categories = filteredGames[i].categories.sort((catA, catB) => {
+                if (!catA.orderNumber) {
+                    catA.orderNumber = 99999;
+                }
+
+                if (!catB.orderNumber) {
+                    catB.orderNumber = 99999;
+                }
+
+                if (catA.orderNumber < catB.orderNumber) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            })
+        }
+
+        // Sort the games with the categories already sorted
+        filteredGames = filteredGames.sort((gameA, gameB) => {
+            if (gameA.categories.length === 1 && !gameA.categories[0].orderNumber) {
+                gameA.categories[0].orderNumber = 999;
+            }
+            
+            if (gameB.categories.length === 1 && !gameB.categories[0].orderNumber) {
+                gameB.categories[0].orderNumber = 999;
+            }
+
+            if (gameA.categories[0].orderNumber! < gameB.categories[0].orderNumber!) {
+                return -1;
+            } else {
+                return 1;
+            }
+        });
+    }
+
     const listItems = [];
     
     for (const item of filteredGames) {

@@ -2,7 +2,8 @@ export interface IFilter {
     searchText: string,
     searching: boolean,
     category: number | null,
-    alphabetically: boolean
+    alphabetically: boolean,
+    popularity: boolean
 }
 
 export interface IFilterStateAction {
@@ -13,7 +14,8 @@ export interface IFilterStateAction {
 export enum FilterActionEnum {
     SEARCH = 'SEARCH',
     CATEGORY = 'CATEGORY',
-    ALPHABETICALLY = 'ALPHABETICALLY'
+    ALPHABETICALLY = 'ALPHABETICALLY',
+    POPULARITY = 'POPULARITY' 
 }
 
 export class Filter implements IFilter {
@@ -21,11 +23,13 @@ export class Filter implements IFilter {
     public searching: boolean;
     public category: number | null;
     public alphabetically: boolean;
+    public popularity: boolean;
 
     constructor (filter: IFilter) {
         this.searchText = filter.searchText;
         this.searching = filter.searching;
         this.category = filter.category;
         this.alphabetically = filter.alphabetically;
+        this.popularity = filter.popularity;
     }
 }
