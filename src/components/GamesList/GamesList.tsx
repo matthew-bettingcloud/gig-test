@@ -1,5 +1,5 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { alphabeticSort, categoryFilter, popularitySort, searchFilter } from '../../helpers/filters';
 
 import { IAppState } from '../../models/AppState';
 import { Filter } from '../../models/Filter';
@@ -29,63 +29,19 @@ function GamesListItems() {
     let filteredGames: Game[] = games;
 
     if (filter.searching) {
-        filteredGames = filteredGames.filter(game => {
-            return game.name.toLowerCase().includes(filter.searchText.toLocaleLowerCase());
-        })
+        filteredGames = searchFilter(filteredGames, filter.searchText);
     }
 
     if (filter.category !== null) {
-        filteredGames = filteredGames.filter(game => {
-            return game.categories.some(item => item.categoryId === filter.category)
-        });
+        filteredGames = categoryFilter(filteredGames, filter.category);
     }
 
     if (filter.alphabetically) {
-        filteredGames = filteredGames.sort((gameA, gameB) => {
-            if(gameA.name < gameB.name) { 
-                return -1 
-            } else {
-                return 1;
-            }
-        });
+        filteredGames = alphabeticSort(filteredGames);
     }
 
     if (filter.popularity) {
-        // Sort the categories first
-        for(let i = 0; i <= filteredGames.length -1 ; i++) {
-            filteredGames[i].categories = filteredGames[i].categories.sort((catA, catB) => {
-                if (!catA.orderNumber) {
-                    catA.orderNumber = 99999;
-                }
-
-                if (!catB.orderNumber) {
-                    catB.orderNumber = 99999;
-                }
-
-                if (catA.orderNumber < catB.orderNumber) {
-                    return -1;
-                } else {
-                    return 1;
-                }
-            })
-        }
-
-        // Sort the games with the categories already sorted
-        filteredGames = filteredGames.sort((gameA, gameB) => {
-            if (gameA.categories.length === 1 && !gameA.categories[0].orderNumber) {
-                gameA.categories[0].orderNumber = 999;
-            }
-            
-            if (gameB.categories.length === 1 && !gameB.categories[0].orderNumber) {
-                gameB.categories[0].orderNumber = 999;
-            }
-
-            if (gameA.categories[0].orderNumber! < gameB.categories[0].orderNumber!) {
-                return -1;
-            } else {
-                return 1;
-            }
-        });
+        filteredGames = popularitySort(filteredGames);
     }
 
     const listItems = [];

@@ -7,8 +7,6 @@ export const ViewMode = () => {
     const dispatch = useDispatch();
     const viewMode = useSelector<IAppState, ViewModeModel>(state => state.viewMode)
 
-    console.log(viewMode)
-
     return (
         <div className="view-mode">
             <span
