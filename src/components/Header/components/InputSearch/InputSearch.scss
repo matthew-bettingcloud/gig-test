@@ -1,9 +1,11 @@
+@import '../../../../scss/colors';
+
 .input-search {
     display: flex;
     align-items: center;
-    background: #f5f5f5;
-    border: 1px solid #bdbdbd;
-    color: #bdbdbd;
+    background: $light-gray;
+    border: 1px solid $font-color;
+    color: $font-color;
     
     i {
         font-size: 10px;

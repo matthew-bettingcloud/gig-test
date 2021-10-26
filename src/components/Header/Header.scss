@@ -1,7 +1,15 @@
+@import '../../scss/colors';
+
 .header {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
+    display: block;
+    padding: 15px 0;
     margin-bottom: 40px;
-    background-color: #ffffff;
+    background-color: $white;
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+    }
 }

@@ -1,8 +1,9 @@
+@import '../../../../scss/colors';
+
 .game-card {
     position: relative;
     width: 100%;
-    background: #ffffff;
-    color: #bdbdbd;
+    background: $white;
 
     .game-image {
         position: relative;

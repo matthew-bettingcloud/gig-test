@@ -1,6 +1,6 @@
-.categories-list {
-    color: #bdbdbd;
+@import '../../scss/colors';
 
+.categories-list {
     h2 {
         font-size: 16px;
         margin-top: 0;
@@ -17,7 +17,7 @@
             cursor: pointer;
 
             &:hover, &.active {
-                color: #ff8a65;
+                color: $link-active;
             }
         }
     }

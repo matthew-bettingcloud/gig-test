@@ -10,11 +10,13 @@ export default class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                <InputSearch />
+                <div className="header-content">
+                    <InputSearch />
 
-                <Filter />
-                
-                <ViewMode />
+                    <Filter />
+                    
+                    <ViewMode />
+                </div>
             </div>
         )
     }

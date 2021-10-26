@@ -1,3 +1,5 @@
+@import '../../../../scss/colors';
+
 .game-tag {
     position: absolute;
     right: 10px;
@@ -5,18 +7,18 @@
     z-index: 1;
     padding: 5px;
     font-size: 12px;
-    color: #ffffff;
+    color: $white;
     font-weight: bold;
 
     &.new {
-        background-color: #fdd835;
+        background-color: $yellow;
     }
 
     &.hot {
-        background-color: #e53935;
+        background-color: $red;
     }
 
     &.live {
-        background-color: #1565c0;
+        background-color: $blue;
     }
 }

@@ -1,4 +1,9 @@
+@import './scss/colors';
+
 .app {
+    background-color: $light-gray;
+    color: $font-color;
+
     .main {
         display: flex;
         width: 70%;
