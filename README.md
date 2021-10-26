@@ -7,6 +7,7 @@
 - The grid view is pre selected
 - The active filters will show up in orange
 - It's possible to select multiple filters ex: 1 Category + Search
+- The popularity sorting assumes that the most popular game is the smallest `orderNumber`
 
 # Difficulties
 
