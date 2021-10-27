@@ -1,5 +1,6 @@
 import React from 'react';
 import { Game } from '../../../../models/Game';
+import GameJackpot from '../GameJackpot/GameJackpot';
 import GameTag from '../GameTag/GameTag';
 
 import './GameLine.scss';
@@ -15,6 +16,7 @@ export default class GameLine extends React.Component<GameLineProps> {
                     {this.props.game.name}
                 </section>
                 <GameTag game={this.props.game}/>
+                { this.props.game.jackpot && <GameJackpot game={this.props.game}/>}
             </div>
         )
     }

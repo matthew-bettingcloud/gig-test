@@ -3,9 +3,9 @@ import { Filter, FilterActionEnum, IFilterStateAction } from '../../models/Filte
 const intialState: Filter = {
     searchText: '',
     searching: false,
-    category: null,
+    category: 24,
     alphabetically: false,
-    popularity: false
+    popularity: true
 }
 
 const filterReducer = (state: Filter = intialState, action: IFilterStateAction) => {

@@ -10,16 +10,16 @@ export const Filter = () => {
 
     return (
         <div className="filter">
-            <span
+            <button
                 className={filter.popularity ? 'active': ''}
                 onClick={() => dispatch({type: FilterActionEnum.POPULARITY, payload: { popularity: true } })}>
                 Popularity
-            </span>
-            <span
+            </button>
+            <button
                 className={filter.alphabetically ? 'active': ''}
                 onClick={() => dispatch({type: FilterActionEnum.ALPHABETICALLY, payload: { alphabetically: true } })}>
                 Alphabetically
-            </span>
+            </button>
         </div>
     )
 }

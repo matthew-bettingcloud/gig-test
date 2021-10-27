@@ -11,7 +11,7 @@ export default class GameJackpot extends React.Component<GameJackpotProps> {
         return (
             <div className="game-jackpot">
                 <div className="icon">J</div>
-                { this.props.game.jackpot?.currencyFormat }
+                <div className="value">{ this.props.game.jackpot?.currencyFormat }</div>
             </div>
         );
     };

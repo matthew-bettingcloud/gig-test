@@ -4,8 +4,11 @@
     display: flex;
     align-items: center;
 
-    span {
+    button {
+        border: none;
+        background-color: transparent;
         margin-left: 15px;
+        color: $font-color;
         cursor: pointer;
         
         &:hover, &.active {

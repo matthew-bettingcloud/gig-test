@@ -1,16 +1,22 @@
+@import '../../../../scss/colors';
+
 .filter {
     display: flex;
     justify-content: right;
     width: 100%;
 
-    span {
+    button {
         display: flex;
         margin: 0 20px;
+        border: none;
+        background-color: transparent;
+        font-size: 15px;
+        color: $font-color;
         font-weight: bold;
         cursor: pointer;
 
         &:hover, &.active {
-            color: #ff8a65;
+            color: $link-active;
         }
     }
 }

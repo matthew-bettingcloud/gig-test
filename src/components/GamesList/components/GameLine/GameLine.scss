@@ -1,4 +1,10 @@
 .game-line {
+    display: flex;
+    align-items: center;
     position: relative;
     font-weight: bold;
+
+    .game-info {
+        margin-right: 15px;
+    }
 }

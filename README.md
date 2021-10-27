@@ -2,7 +2,7 @@
 
 # Assumptions
 
-- There is no category pre selected when loading for the first time
+- Popularity sorting and Recomended filter are preset
 - The final api response of the games will retrieve a smaller number of games instead of 900
 - The grid view is pre selected
 - The active filters will show up in orange

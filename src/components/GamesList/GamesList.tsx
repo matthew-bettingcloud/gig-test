@@ -13,10 +13,12 @@ import './GamesList.scss';
 
 export const GamesList = () =>  {
     const dispatch = useDispatch();
+    const viewMode: ViewMode = useSelector<IAppState, ViewMode>(state => state.viewMode);
     dispatch({ type: GameActionEnum.SET_GAMES });
 
     return (
-        <div className="games-list">
+        // eslint-disable-next-line no-useless-concat
+        <div className={'games-list ' + getViewModeClass(viewMode.type) }>
             <GamesListItems />
         </div>
     )
@@ -55,4 +57,8 @@ function GamesListItems() {
     }
 
     return listItems.length ? (<>{listItems}</>) : (<span>No results found</span>);
+}
+
+function getViewModeClass (viewMode: ViewModeEnum) {
+    return viewMode === ViewModeEnum.GRID ? 'grid-view' : 'list-view';
 }

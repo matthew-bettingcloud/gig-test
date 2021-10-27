@@ -18,3 +18,16 @@
         margin-right: 8px;
     }
 }
+
+.list-view {
+    .game-jackpot {
+        position: relative;
+        padding: 0;
+        background-color: transparent;
+        bottom: unset;
+
+        .value {
+            display: none;
+        }
+    }
+}

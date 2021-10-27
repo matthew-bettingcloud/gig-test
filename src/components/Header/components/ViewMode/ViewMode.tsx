@@ -9,16 +9,16 @@ export const ViewMode = () => {
 
     return (
         <div className="view-mode">
-            <span
+            <button
                 className={viewMode.type === ViewModeEnum.GRID ? 'active' : ''}
                 onClick={() => dispatch({type: ViewModeActionEnum.SET_VIEW_MODE, payload: ViewModeEnum.GRID})}>
                 <i className="gg-menu-grid-r"></i>
-            </span>
-            <span
+            </button>
+            <button
                 className={viewMode.type === ViewModeEnum.LIST ? 'active' : ''}
                 onClick={() => dispatch({type: ViewModeActionEnum.SET_VIEW_MODE, payload: ViewModeEnum.LIST})}>
                 <i className="gg-menu"></i>
-            </span>                 
+            </button>                 
         </div>
     );
 }

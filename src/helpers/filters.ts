@@ -14,7 +14,7 @@ export function categoryFilter(games: Game[], categoryId: number) {
 
 export function alphabeticSort(games: Game[]) {
     return games.sort((gameA, gameB) => {
-        if(gameA.name < gameB.name) { 
+        if(gameA.name.toLowerCase() < gameB.name.toLowerCase()) { 
             return -1 
         } else {
             return 1;
